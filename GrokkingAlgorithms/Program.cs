@@ -50,7 +50,13 @@ namespace GrokkingAlgorithms
             Console.WriteLine();
             Console.WriteLine("Программа закончила выполнение");
             #endregion
-
+            #region Factorial
+            Console.WriteLine("Вычисление факториала:");
+            Console.WriteLine("Введите число и нажмите 'Enter':");
+            int userinputfactorial = int.Parse(Console.ReadLine());
+            Console.WriteLine("Значение факториала: " + Factorial.GetResult(userinputfactorial));
+            Console.WriteLine("Программа закончила выполнение.");
+            #endregion
             Console.ReadKey();
         }
 

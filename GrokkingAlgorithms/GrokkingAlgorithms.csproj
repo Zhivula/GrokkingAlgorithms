@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BinarySearch.cs" />
     <Compile Include="BubbleSort.cs" />
+    <Compile Include="Factorial.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
