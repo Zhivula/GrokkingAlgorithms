@@ -10,13 +10,18 @@ namespace GrokkingAlgorithms
     {
         static void Main(string[] args)
         {
-            List<int> list = new List<int>() {1, 2,3,4,5,6,7,8,9};
+            #region BinarySearch
+            List<int> list = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            Console.Write("Имеется список: ");
+            foreach (int x in list) Console.Write(x+",");
+            Console.WriteLine();
+            Console.WriteLine("Введите, пожалуйста, число для поиска: ");
+            
+            var userInput = int.Parse(Console.ReadLine());
             ConsoleKey key = ConsoleKey.Enter;
             while (key != ConsoleKey.Escape)
             {
-                Console.WriteLine("Введите, пожалуйста, число: ");
-                var userInput = int.Parse(Console.ReadLine());
-                bool result = BinarySearch.TryGetResult(list, userInput);
+                bool result = new BinarySearch<int>().TryGetResult(list, userInput);
                 Console.WriteLine("Результат работы бинарного поиска: " + result);
                 if (result == true) Console.WriteLine("Элемент " + userInput + " был найден!");
                 else Console.WriteLine("Элемент " + userInput + " не был найден!");
@@ -25,7 +30,37 @@ namespace GrokkingAlgorithms
                 key = Console.ReadKey().Key;
             }
             Console.WriteLine("Программа закончила выполнение.");
+            #endregion
+            #region BubbleSort
+            Console.WriteLine("Работа метода пузырьковой сортировки");
+            BubbleSort<int> bubbleSort = new BubbleSort<int>();
+            Console.WriteLine("Введите количество элементов в списке");
+            int userinput = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Элементы списка до сортировки: ");
+            var listBeforeBubbleSort = GetRandomList(userinput);
+
+            foreach (int x in listBeforeBubbleSort) Console.Write(x + ", ");
+            Console.WriteLine();
+
+            var listBubbleSort = bubbleSort.Sort(listBeforeBubbleSort);
+            Console.WriteLine("Элементы списка после сортировки: ");
+
+            foreach (int x in listBubbleSort) Console.Write(x+", ");
+            Console.WriteLine();
+            Console.WriteLine("Программа закончила выполнение");
+            #endregion
+
             Console.ReadKey();
+        }
+
+        //Возвращает список заполненный случайными числами в диапазоне от "1" до "count"
+        public static List<int> GetRandomList(int count)
+        {
+            Random rand = new Random();
+            List<int> list = new List<int>();
+            for (int i = 0; i < count; i++) list.Add(rand.Next(1,count));
+            return list;
         }
     }
 }

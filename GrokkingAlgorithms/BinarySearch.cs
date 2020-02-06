@@ -6,30 +6,29 @@ using System.Threading.Tasks;
 
 namespace GrokkingAlgorithms
 {
-    class BinarySearch
+    public class BinarySearch<T> where T: IComparable
     {
-        public static bool TryGetResult(IList<int> list, int element)
+        public bool TryGetResult(IList<T> list, T element)
         {
             if (list != null)
             {
                 var low = 0;
                 var high = list.Count()-1;
-                var middle = (list.Count()-1) / 2;
+                var middle = 0;
                 while (low<=high)
                 {
-                    if (list[middle]==element)
+                    middle = (high + low) / 2;
+                    if (list[middle].CompareTo(element) == 0)
                     {
                         return true;
                     }
-                    else if(list[middle] > element)
+                    else if(list[middle].CompareTo(element) == 1)//тут нужно поправить
                     {
                         high = middle-1;
-                        middle = (high + low) / 2;
                     }
                     else
                     {
                         low = middle+1;
-                        middle = (low + high) / 2;
                     }
                 }
             }
