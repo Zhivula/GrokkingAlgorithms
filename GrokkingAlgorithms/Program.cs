@@ -16,7 +16,7 @@ namespace GrokkingAlgorithms
             //foreach (int x in list) Console.Write(x+",");
             //Console.WriteLine();
             //Console.WriteLine("Введите, пожалуйста, число для поиска: ");
-            
+
             //var userInput = int.Parse(Console.ReadLine());
             //ConsoleKey key = ConsoleKey.Enter;
             //while (key != ConsoleKey.Escape)
@@ -58,13 +58,27 @@ namespace GrokkingAlgorithms
             //Console.WriteLine("Программа закончила выполнение." +
             //    "");
             //#endregion
-            #region QuickSort
-            QuickSort quickSort = new QuickSort();
-            var listQuickSort = GetRandomList(10);
-            foreach (int i in listQuickSort) Console.Write(i+", ");
-            Console.WriteLine();
-            var resultQuickSort = quickSort.Sort(listQuickSort);
-            foreach (int i in resultQuickSort) Console.Write(i + ", ");
+            //#region QuickSort
+            //QuickSort quickSort = new QuickSort();
+            //var listQuickSort = GetRandomList(10);
+            //foreach (int i in listQuickSort) Console.Write(i+", ");
+            //Console.WriteLine();
+            //var resultQuickSort = quickSort.Sort(listQuickSort);
+            //foreach (int i in resultQuickSort) Console.Write(i + ", ");
+            //#endregion
+            #region HashTable
+            MyHashTable<int> myHashTable = new MyHashTable<int>(10);
+            myHashTable.Add(10);
+            myHashTable.Add(15);
+            myHashTable.Add(3);
+            myHashTable.Add(5);
+            myHashTable.Add(12);
+            myHashTable.Add(14);
+            Console.WriteLine("Данные в хеш-таблице: 10,15,3,5,12,14");
+            Console.WriteLine("Поиска элемента 5: " + myHashTable.Search(5));
+            Console.WriteLine("Поиска элемента 7: " + myHashTable.Search(7));
+            Console.WriteLine("Поиска элемента 10: " + myHashTable.Search(10));
+            Console.WriteLine("Finish work");
             #endregion
             Console.ReadKey();
         }
