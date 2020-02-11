@@ -66,19 +66,45 @@ namespace GrokkingAlgorithms
             //var resultQuickSort = quickSort.Sort(listQuickSort);
             //foreach (int i in resultQuickSort) Console.Write(i + ", ");
             //#endregion
-            #region HashTable
-            MyHashTable<int> myHashTable = new MyHashTable<int>(10);
-            myHashTable.Add(10);
-            myHashTable.Add(15);
-            myHashTable.Add(3);
-            myHashTable.Add(5);
-            myHashTable.Add(12);
-            myHashTable.Add(14);
-            Console.WriteLine("Данные в хеш-таблице: 10,15,3,5,12,14");
-            Console.WriteLine("Поиска элемента 5: " + myHashTable.Search(5));
-            Console.WriteLine("Поиска элемента 7: " + myHashTable.Search(7));
-            Console.WriteLine("Поиска элемента 10: " + myHashTable.Search(10));
-            Console.WriteLine("Finish work");
+            //#region HashTable
+            //MyHashTable<int> myHashTable = new MyHashTable<int>(10);
+            //myHashTable.Add(10);
+            //myHashTable.Add(15);
+            //myHashTable.Add(3);
+            //myHashTable.Add(5);
+            //myHashTable.Add(12);
+            //myHashTable.Add(14);
+            //Console.WriteLine("Данные в хеш-таблице: 10,15,3,5,12,14");
+            //Console.WriteLine("Поиска элемента 5: " + myHashTable.Search(5));
+            //Console.WriteLine("Поиска элемента 7: " + myHashTable.Search(7));
+            //Console.WriteLine("Поиска элемента 10: " + myHashTable.Search(10));
+            //Console.WriteLine("Finish work");
+            //#endregion
+            #region Breadth-First Search
+            Console.WriteLine("Программа наычала выполнение");
+            List<Person> DmitryFriends = new List<Person>()
+            {
+                new Person(null, "Владислав"),
+                new Person(null, "Назар"),
+                new Person(null, "Светлана"),
+                new Person(null, "Юлиана"),
+            };
+            List<Person> AnnaFriends = new List<Person>()
+            {
+                new Person(null, "Кирилл"),
+                new Person(null, "Валерий"),
+                new Person(null, "Продавец манго"),
+            };
+            List<Person> firstFriends = new List<Person>() {
+                new Person(DmitryFriends, "Дмитрий"),
+                new Person(null, "Валерий"),
+                new Person(null, "Алеся"),
+                new Person(AnnaFriends, "Анна"),
+            };
+
+            BFSearch bFSearch = new BFSearch(firstFriends);
+            Console.WriteLine(bFSearch.Search());
+            Console.WriteLine("Программа закончила выполнение");
             #endregion
             Console.ReadKey();
         }
