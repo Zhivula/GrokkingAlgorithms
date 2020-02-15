@@ -93,7 +93,8 @@ namespace GrokkingAlgorithms
             {
                 new Person(null, "Кирилл"),
                 new Person(null, "Валерий"),
-                new Person(null, "Продавец манго"),
+                new Person(null, "Продавец" +
+                " манго"),
             };
             List<Person> firstFriends = new List<Person>() {
                 new Person(DmitryFriends, "Дмитрий"),
@@ -105,6 +106,25 @@ namespace GrokkingAlgorithms
             BFSearch bFSearch = new BFSearch(firstFriends);
             Console.WriteLine(bFSearch.Search());
             Console.WriteLine("Программа закончила выполнение");
+            #endregion
+            #region Dijkstra
+            Console.WriteLine("Программа начала свое выполнение");
+            MyGraph.Graph graph = new MyGraph.Graph();
+            graph.AddVertex("A");
+            graph.AddVertex("B");
+            graph.AddVertex("C");
+            graph.AddVertex("D");
+
+            graph.AddEdge("A","B",2);
+            graph.AddEdge("A", "C", 6);
+            graph.AddEdge("B", "C", 3);
+            graph.AddEdge("C", "D", 1);
+            graph.AddEdge("B", "D", 5);
+
+            Dijkstra dijkstra = new Dijkstra(graph);
+            var path = dijkstra.FindShortestPath("A","D");
+            Console.WriteLine("Результат: " + path);
+            Console.WriteLine("Программа закончила свое выполнение");
             #endregion
             Console.ReadKey();
         }
